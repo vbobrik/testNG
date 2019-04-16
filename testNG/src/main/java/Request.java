@@ -11,7 +11,7 @@ import org.json.JSONObject;
 public class Request {
 
     private static String userName = "v.bobrik@kino-mo.com";
-    private static String password = "";
+    private static String password = "NIKita-1995.@";
     private static String BASE_URI = "https://stage-platform.kino-mo.com";
     private static String BASE_PATH = "/api/admin/0";
 
@@ -61,10 +61,12 @@ public class Request {
                 .contentType("application/json")
                 .body(client)
                 .put(BASE_URI + BASE_PATH + "/client");
-        Client eee = response.getBody().jsonPath().getObject("message", Client.class);
-
-        client.set_id(eee.get_id());
-        return response.getBody().jsonPath().getObject("message", Client.class);
+//        Client eee = new Client();
+//
+//         eee = (Client) response.getBody().jsonPath().getObject("message", Client.class);
+//
+//        client.set_id(eee.get_id());
+        return response.jsonPath().getObject("message", Client.class);
 
     }
 

@@ -29,13 +29,13 @@ public class MongoConnectMorphia implements DAO {
 
         final Morphia morphia = new Morphia();
         datastore = morphia.createDatastore(new MongoClient(new MongoClientURI(host)), dbName);
-        morphia.map(Client.class);
+  //      morphia.map(Client.class);
         morphia.mapPackage("main.com.java");
         System.out.println("-------******-------" + datastore.getCount(Client.class));
         datastore.getCollection(Client.class);
 
-        Client client = datastore.find(Client.class).field("_id").equal("5c97dccecbc5371e9dc3f70c").get();
-        System.out.println("----*****-----custom name is " + client.getName());
+  //      Client client = datastore.find(Client.class).field("_id").equal("5c97dccecbc5371e9dc3f70c").get();
+   //     System.out.println("----*****-----custom name is " + client.getName());
         //    Query<Client> query = datastore.createQuery(Client.class);
         //    List<Client> clientslist = query.asList();
         //    System.out.println(clientslist.toString());

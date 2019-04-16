@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 @Entity("clients")
 public class Client {
-    @Id
+    @Id()
     private static String _id;
     private static String name;
     private static String legalName;
@@ -125,7 +125,7 @@ public class Client {
         return false;
     }
     */
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -144,4 +144,5 @@ public class Client {
     public int hashCode() {
         return Objects.hash(get_id(), getName(), getLegalName(), getAllowedPermissions(), getPhone(), getEmail(), getDefaultLocation());
     }
+    */
 }

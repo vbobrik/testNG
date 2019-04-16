@@ -11,7 +11,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 import static io.restassured.RestAssured.given;
-@Test
+
 public class TestAPI {
     private static ArrayList<String> arrayPhone = new ArrayList<>();
     private static ArrayList<String> arrayEmail = new ArrayList<>();
@@ -22,6 +22,9 @@ public class TestAPI {
     private MongoConnectMorphia mongoConnectMorphia = new MongoConnectMorphia();
     // private Client customClient = new Client("1Gosha11222A", "Got", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());;
     private Client mongoClient;
+    private static Client client0API;
+    private static Client client1API;
+    private static Client client2API;
 
     @BeforeClass
     public static void preparation() throws UnknownHostException {
@@ -31,7 +34,7 @@ public class TestAPI {
         MongoConnectMorphia.morphyaConnect();
         DefaultLocation coordinats = new DefaultLocation();
         DefaultLocation client1Location = new DefaultLocation("Point", "by", coordinats.getCoordinates());
-        Client client0 = new Client("1Gosha1112222A", "Got", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());
+        Client client0 = new Client("1Gosha111222222A", "Got", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());
         Client client1 = new Client("Goshaaa3112212", "Got", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());
         Client client2 = new Client("Gosha3332", "Got", client1Location, getArrayPhone(), getArrayEmail1(), getAllowedPermissions());
         Client client0API = Request.createClient(client0);
@@ -41,23 +44,18 @@ public class TestAPI {
 
 
     @Test
-    public static void createClient(Client client)  {
-        try{
-            Assert.assertEquals(Request.createClient(client), MongoConnectMorphia.getMongoClient(client.get_id()));
-        }catch (Exception ex){
-            System.out.println("Woooppsssssssss...........Create");
-        }
+    public static void createClient()  {
+
+            Assert.assertEquals(Request.createClient(client0API), MongoConnectMorphia.getMongoClient(client0API.get_id()));
     }
 
     @Test
-    public void getClient(Client client) {
-        try {
-            Client customClient = request.getClientById(client.get_id());
-            Client mongoClient = mongoConnectMorphia.getMongoClient(client.get_id());
+    public void getClient() {
+
+            Client customClient = request.getClientById(client0API.get_id());
+            Client mongoClient = mongoConnectMorphia.getMongoClient(client0API.get_id());
             Assert.assertEquals(customClient, mongoClient);
-        } catch(Exception ex) {
-            System.out.println("Whooooooooooppppssss..........GET");
-        }
+
     }
 
   /*  @Test
@@ -69,9 +67,9 @@ public class TestAPI {
     } */
 
     @Test
-    public void updateClient(Client client, String _id) {
-        Client customClient = request.updateClient(client, _id);
-        Client gottedClient = request.getClientById(client.get_id());
+    public void updateClient() {
+        Client customClient = request.updateClient(client1API, client1API.get_id());
+        Client gottedClient = request.getClientById(client1API.get_id());
         mongoClient = mongoConnectMorphia.getMongoClient(customClient.get_id());
         Assert.assertEquals(gottedClient, mongoClient);
     }
@@ -84,7 +82,7 @@ public class TestAPI {
 
     public static ArrayList<String> getArrayEmail() throws NullPointerException{
         arrayEmail.clear();
-        arrayEmail.add("1teseted212242y16a@jtk.ru");
+        arrayEmail.add("1teseted21224222y16a@jtk.ru");
         return arrayEmail;
     }
 

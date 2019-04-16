@@ -9,19 +9,23 @@ public class Main {
     private static ArrayList<String> allowedPermissions = new ArrayList<>();
 
     public static void main(String[] args) throws UnknownHostException {
-        MongoConnectMorphia mongoConnect = new MongoConnectMorphia();
+       // MongoConnectMorphia mongoConnect = new MongoConnectMorphia();
         //System.out.println(mongoConnect.getDataStore("stage-platform").getCollection(Client.class));
-        mongoConnect.morphyaConnect();
-        System.out.println(mongoConnect.getMongoClient("5c97dccecbc5371e9dc3f70c").get_id());
+      //  mongoConnect.morphyaConnect();
+     //   System.out.println(mongoConnect.getMongoClient("5c97dccecbc5371e9dc3f70c").get_id());
         //   DAO dao = new MongoConnectMorphia();
-
-
+//MongoConnectMorphia.morphyaConnect();
+        System.out.println( "token!!!!!!!!" + Request.getToken());
         DefaultLocation coordinats = new DefaultLocation();
         DefaultLocation client1Location = new DefaultLocation("Point", "by", coordinats.getCoordinates());
-        Client client0 = new Client("1Gosha11222A", "Got", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());
-        Client clientCteated = Request.createClient(client0);
+        Client client0 = new Client("1Gosha1f1222iA2q", "Gotq", client1Location, getArrayPhone(), getArrayEmail(), getAllowedPermissions());
+        System.out.println( Request.createClient(client0));
+/*        Client clientCteated = Request.createClient(client0);
+       System.out.println("***********Created Client______" + clientCteated);
         System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11" + Request.getClientById(clientCteated.get_id()));
-
+        System.out.println("******GET CLIENT BY ID");
+        System.out.println(Request.getClientById(clientCteated.get_id()));
+*/
 /*
         Request request = new Request();
 //       DefaultLocation.setCoordinates();
@@ -35,7 +39,7 @@ public class Main {
         System.out.println(request.getToken());
 
         System.out.println("******GET CLIENT BY ID");
-        System.out.println(request.getClientById("5c97dccecbc5371e9dc3f70c"));
+//        System.out.println(request.getClientById("5c97dccecbc5371e9dc3f70c"));
 
         System.out.println("*********CREATE CLIENT");
 //        Client createdClient = request.createClient(client0);
@@ -71,7 +75,7 @@ public class Main {
 
     public static ArrayList<String> getArrayEmail() {
         arrayEmail.clear();
-        arrayEmail.add("1tesetd21224y16a@jtk.ru");
+        arrayEmail.add("1tesetd21224yf1i6a2q@jtk.ru");
         return arrayEmail;
     }
 
