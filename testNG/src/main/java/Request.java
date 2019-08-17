@@ -10,8 +10,8 @@ import org.json.JSONObject;
 
 public class Request {
 
-    private static String userName = "v.bobrik@kino-mo.com";
-    private static String password = "NIKita-1995.@";
+    private static String userName = "";
+    private static String password = "";
     private static String BASE_URI = "https://stage-platform.kino-mo.com";
     private static String BASE_PATH = "/api/admin/0";
 
