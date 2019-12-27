@@ -19,9 +19,9 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class MongoConnectMorphia implements DAO {
     private static String login = "platform";
-    private static String pass = "SBUhX8Kmpcr7T";
+    private static String pass = "";
     private static String dbName = "stage-platform";
-    private static String host = "mongodb://platform:SBUhX8Kmpcr7T@10.10.0.27:27017,10.10.0.26:27017,10.10.0.28:27017";
+    private static String host = "mongodb://platform:";
     private static Datastore datastore;
     //  private List<Client> clientslist;
 
@@ -88,10 +88,10 @@ public class MongoConnectMorphia implements DAO {
     }
 
     public Datastore getDataStore(String dbName) {
-        MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://platform:SBUhX8Kmpcr7T@10.10.0.27:27017,10.10.0.26:27017,10.10.0.28:27017"));
-        MongoClient mongoClient1 = new MongoClient(new MongoClientURI(" mongodb://[platform:SBUhX8Kmpcr7T@]" +
-                "10.10.0.27[:27017]" +
-                "[,10.10.0.26[:27017],10.10.0.28[:27017]]" +
+        MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://platform:"));
+        MongoClient mongoClient1 = new MongoClient(new MongoClientURI(" mongodb://[platform:]" +
+                "" +
+                "" +
                 "[/[stage-platform][?options]]"));
         return new Morphia().map(Client.class).createDatastore(mongoClient, dbName);
 
